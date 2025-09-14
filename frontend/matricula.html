@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Matrícula - Chute Inicial Corinthians</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="shortcut icon" href="midia/img/favicon/logo-do-corinthians-256.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="logo-titulo">
+      <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="80px"
+      height="80px">
+      <h1>Chute Inicial Corinthians</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form id="matriculaForm">
+      <h2>Matrícula</h2>
+      <select name="unidade" required>
+        <option value="">Selecione a unidade</option>
+        <option>Interlagos</option>
+        <option>Osasco</option>
+        <option>Itaquera</option>
+        <option>Taboão</option>
+        <option>Vargem Grande</option>
+      </select>
+
+      <select name="categoria" required>
+        <option value="">Selecione a categoria</option>
+        <option>Sub-7</option>
+        <option>Sub-8</option>
+        <option>Sub-9</option>
+        <option>Sub-10</option>
+        <option>Sub-11</option>
+        <option>Sub-12</option>
+        <option>Sub-13</option>
+        <option>Sub-14</option>
+        <option>Sub-15</option>
+        <option>Sub-16</option>
+        <option>Sub-17</option>
+      </select>
+
+      <button type="submit" class="btn">Matricular</button>
+    </form>
+  </main>
+
+  <footer>
+    
+        <div>
+      <p>Contato:                
+        <a href="#" onclick="copiarTexto('11968340210')" class="links">Whatsapp</a> | 
+        <a href="#" onclick="copiarTexto('guxxxxtavo.silva@gmail.com')" class="links">Email</a> | 
+        <a href="https://www.instagram.com/gusilvx.sccp" target="_blank" class="links">Instagram</a>
+        </p>
+    </div>
+
+    <p>Desenvolvido por <a href="admin.html" class="links">Gustavo Silva</a></p>
+
+    <p>© 2025 Chute Inicial Corinthians</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

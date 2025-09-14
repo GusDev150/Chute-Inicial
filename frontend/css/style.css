@@ -1,0 +1,253 @@
+:root {
+  --preto: #0d0d0d;
+  --branco: #ffffff;
+  --dourado: #c9a03f;
+  --bege: #f5f5dc;
+  --cinza-claro: #f0f0f0;
+  --fonte: 'Poppins', sans-serif;
+  --hover-bg: rgba(201, 160, 63, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--fonte);
+}
+
+body {
+  background-color: var(--bege);
+  color: var(--preto);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--preto);
+  color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  font-size: 14px;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  color: var(--dourado);
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.primeiroh2 {
+  padding-top: 20px;
+}
+
+.logo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--branco);
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+nav a:hover, nav a.active {
+  background-color: var(--hover-bg);
+  color: var(--dourado);
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--preto);
+  font-weight: 600;
+}
+
+h3 {
+  margin: 1.5rem 0 1rem 0;
+  color: var(--preto);
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+.links {
+  color: #c9a03f;
+  text-decoration: none;
+}
+
+.links:hover {
+  text-decoration: underline;
+}
+
+/* Forms */
+form {
+  background: var(--branco);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--dourado);
+  box-shadow: 0 0 5px var(--dourado);
+}
+
+button {
+  background: var(--dourado);
+  color: var(--preto);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background: var(--preto);
+  color: var(--dourado);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--preto);
+  color: var(--dourado);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--branco);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: var(--preto);
+  color: var(--dourado);
+}
+
+tr:hover {
+  background: var(--hover-bg);
+}
+
+/* Footer */
+footer {
+  background: var(--preto);
+  color: var(--branco);
+  text-align: center;
+  padding: 1rem 1rem;
+  margin-top: 1rem;
+}
+
+/* Carrossel */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 500px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay com nome da unidade */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  color: var(--dourado);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.slide:hover .overlay {
+  opacity: 1;
+}

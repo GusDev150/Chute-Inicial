@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Chute Inicial Corinthians</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="midia/img/favicon/logo-do-corinthians-256.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <div class="logo-titulo">
+      <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Corinthians Logo" width="80px" height="80px">
+      <h1>Chute Inicial Corinthians</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="matricula.html">Matrícula</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form id="loginForm">
+      <h2>Login</h2>
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="senha" placeholder="Senha" required />
+      <button type="submit" class="btn">Entrar</button>
+      <p>Ainda não tem conta? <a href="cadastro.html" class="links">Cadastrar</a></p>
+    </form>
+  </main>
+
+  <footer>
+    <div>
+      <p>Contato:                
+        <a href="#" onclick="copiarTexto('11968340210')" class="links">Whatsapp</a> | 
+        <a href="#" onclick="copiarTexto('guxxxxtavo.silva@gmail.com')" class="links">Email</a> | 
+        <a href="https://www.instagram.com/gusilvx.sccp" target="_blank" class="links">Instagram</a>
+        </p>
+    </div>
+
+    <p>Desenvolvido por <label for="text"   class="links">Gustavo Silva</label></p>
+
+    <p>© 2025 Chute Inicial Corinthians</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function copiarTexto(texto) {
+    navigator.clipboard.writeText(texto).then(() => {
+      alert("Copiado: " + texto);
+    }).catch(err => {
+      console.error("Erro ao copiar: ", err);
+    });
+  }
+  </script>
+</body>
+</html>
