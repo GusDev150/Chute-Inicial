@@ -4,29 +4,64 @@
   <meta charset="UTF-8">
   <title>Interlagos - Chute Inicial Corinthians</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="midia/img/favicon/logo-do-corinthians-256.png" type="image/x-icon">
 </head>
 <body>
   <header>
+  <div class="logo-titulo">
+    <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="80px" height="80px">
     <h1>Chute Inicial Corinthians</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sobre.html">Quem Somos</a></li>
-        <li><a href="matricula.html">Matrícula</a></li>
-      </ul>
-    </nav>
-  </header>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="osasco.html">Osasco</a></li>
+      <li><a href="itaquera.html">Itaquera</a></li>
+      <li><a href="taboao.html">Taboão</a></li>
+      <li><a href="vargem-grande.html">Vargem Grande</a></li>
+      <li><a href="matricula.html">Matrícula</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main>
-    <h2>Unidade Interlagos</h2>
-    <p>Treinamentos de 2ª, 4ª e 6ª das 14h às 18h</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.075586065361!2d-46.69728378922357!3d-23.67325477863436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce503b59abffff%3A0x76ee1ef12cae1e90!2sArena%20Soccer%20Grass%20Academy%20-%20Unidade%20Interlagos!5e0!3m2!1spt-BR!2sbr!4v1756602464968!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <img src="imagens/interlagos.jpg" alt="Treino Interlagos">
-  </main>
+<main>
+  <h2>Unidade Interlagos</h2>
+  <p>Treinamentos de 2ª, 4ª e 6ª das 14h às 18h</p>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.075586065361!2d-46.69728378922357!3d-23.67325477863436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce503b59abffff%3A0x76ee1ef12cae1e90!2sArena%20Soccer%20Grass%20Academy%20-%20Unidade%20Interlagos!5e0!3m2!1spt-BR!2sbr!4v1756602464968!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <img src="imagens/interlagos.jpg" alt="Treino Interlagos">
+</main>
 
-  <footer>
-    <p>Contato: Instagram | WhatsApp | Email | Telefone</p>
-    <p>© 2025 Chute Inicial Corinthians</p>
-  </footer>
+<footer>
+  <div>
+    <p>Contato: <a href="#" onclick="copiarTexto('11968340210')" class="links">Whatsapp</a> | <a href="#" onclick="copiarTexto('guxxxxtavo.silva@gmail.com')" class="links">Email</a> | <a href="https://www.instagram.com/gusilvx.sccp" target="_blank" class="links">Instagram</a></p>
+
+  </div>
+  <p>Desenvolvido por <label for="text" class="links">Gustavo Silva</label></p>
+  <p>© 2025 Chute Inicial Corinthians</p>
+</footer>
+
+<script>
+  const slides = document.querySelector('.slides');
+  const totalSlides = document.querySelectorAll('.slide').length;
+  let index = 0;
+
+  function showNextSlide() {
+  index++;
+  if (index >= totalSlides) index = 0;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  setInterval(showNextSlide, 3000);
+  
+  function copiarTexto(texto) {
+  navigator.clipboard.writeText(texto).then(() => {
+    alert("Copiado: " + texto);
+  }).catch(err => {
+    console.error("Erro ao copiar: ", err);
+  });
+}
+</script>
 </body>
 </html>

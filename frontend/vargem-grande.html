@@ -4,15 +4,24 @@
   <meta charset="UTF-8">
   <title>Vargem Grande - Chute Inicial Corinthians</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="midia/img/favicon/logo-do-corinthians-256.png" type="image/x-icon">
 </head>
 <body>
   <header>
-    <h1>Chute Inicial Corinthians</h1>
+    <div class="logo-titulo">
+      <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="80px" height="80px">
+      <h1>Chute Inicial Corinthians</h1>
+    </div>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="sobre.html">Quem Somos</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="interlagos.html">Interlagos</a></li>
+        <li><a href="itaquera.html">Itaquera</a></li>
+        <li><a href="osasco.html">Osasco</a></li>
+        <li><a href="taboao.html">Taboão</a></li>
         <li><a href="matricula.html">Matrícula</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
       </ul>
     </nav>
   </header>
@@ -24,9 +33,35 @@
     <img src="imagens/vargem-grande.jpg" alt="Treino Vargem Grande">
   </main>
 
-  <footer>
-    <p>Contato: Instagram | WhatsApp | Email | Telefone</p>
-    <p>© 2025 Chute Inicial Corinthians</p>
-  </footer>
+<footer>
+  <div>
+    <p>Contato: <a href="#" onclick="copiarTexto('11968340210')" class="links">Whatsapp</a> | <a href="#" onclick="copiarTexto('guxxxxtavo.silva@gmail.com')" class="links">Email</a> | <a href="https://www.instagram.com/gusilvx.sccp" target="_blank" class="links">Instagram</a></p>
+
+  </div>
+  <p>Desenvolvido por <label for="text" class="links">Gustavo Silva</label></p>
+  <p>© 2025 Chute Inicial Corinthians</p>
+</footer>
+
+<script>
+  const slides = document.querySelector('.slides');
+  const totalSlides = document.querySelectorAll('.slide').length;
+  let index = 0;
+
+  function showNextSlide() {
+  index++;
+  if (index >= totalSlides) index = 0;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  setInterval(showNextSlide, 3000);
+  
+  function copiarTexto(texto) {
+  navigator.clipboard.writeText(texto).then(() => {
+    alert("Copiado: " + texto);
+  }).catch(err => {
+    console.error("Erro ao copiar: ", err);
+  });
+}
+</script>
 </body>
 </html>

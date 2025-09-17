@@ -69,60 +69,60 @@
     </div>
   </div>
 
-    <h2>Sobre o Projeto</h2>
+  <h2>Sobre o Projeto</h2>
 
-    <p>O <strong>Chute Inicial Corinthians</strong> nasceu para oferecer oportunidades a jovens apaixonados pelo esporte, promovendo o desenvolvimento físico, técnico e humano de cada aluno. Nosso objetivo é formar talentos dentro de campo e também pessoas responsáveis, solidárias e comprometidas com o futuro.</p>
+  <p>O <strong>Chute Inicial Corinthians</strong> nasceu para oferecer oportunidades a jovens apaixonados pelo esporte, promovendo o desenvolvimento físico, técnico e humano de cada aluno. Nosso objetivo é formar talentos dentro de campo e também pessoas responsáveis, solidárias e comprometidas com o futuro.</p>
 
-    <p>A <strong>metodologia</strong> é baseada nos princípios do <strong>Clube do Povo</strong>: garra, raça, união e respeito. Cada criança aprende a importância do trabalho em equipe, da disciplina e da persistência – valores que ultrapassam o futebol e marcam para sempre a vida dos participantes.</p>
+  <p>A <strong>metodologia</strong> é baseada nos princípios do <strong>Clube do Povo</strong>: garra, raça, união e respeito. Cada criança aprende a importância do trabalho em equipe, da disciplina e da persistência – valores que ultrapassam o futebol e marcam para sempre a vida dos participantes.</p>
 
-    <h2>Viva a esperiencia Corinthiana!</h2>
+  <h2>Viva a esperiencia Corinthiana!</h2>
 
-    <p>Nossos treinos, jogos, eventos e conquistas mostram a força de quem veste o manto alvinegro. Em cada chute, em cada defesa e em cada gol, existe uma história de dedicação e superação.</p>
+  <p>Nossos treinos, jogos, eventos e conquistas mostram a força de quem veste o manto alvinegro. Em cada chute, em cada defesa e em cada gol, existe uma história de dedicação e superação.</p>
 
-    <p>Confira o vídeos do nosso dia a dia e veja de perto como é fazer parte dessa família que só cresce. Aqui, todos têm espaço para brilhar, aprender e viver momentos inesquecíveis com a energia da Fiel.</p>
+  <p>Confira o vídeos do nosso dia a dia e veja de perto como é fazer parte dessa família que só cresce. Aqui, todos têm espaço para brilhar, aprender e viver momentos inesquecíveis com a energia da Fiel.</p>
 
-    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
-      <iframe width="900" height="500" src="https://www.youtube.com/embed/NWn19990Rp8?si=bVMqLBjlxvZeNUUJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+  <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+    <iframe width="900" height="500" src="https://www.youtube.com/embed/NWn19990Rp8?si=bVMqLBjlxvZeNUUJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
 
-    <h2>Faça parte dessa história!</h2>
+  <h2>Faça parte dessa história!</h2>
 
-    <p>Se você sonha em jogar futebol e viver os valores do Corinthians desde cedo, o momento é agora! O <strong>Chute Inicial</strong> está de portas abertas para receber novos talentos e apaixonados pelo esporte.</p>
+  <p>Se você sonha em jogar futebol e viver os valores do Corinthians desde cedo, o momento é agora! O <strong>Chute Inicial</strong> está de portas abertas para receber novos talentos e apaixonados pelo esporte.</p>
 
-    <p>Mais que formar jogadores, queremos formar campeões para a vida. Venha treinar, aprender, se divertir e escrever junto conosco o futuro do Timão.</p>
+  <p>Mais que formar jogadores, queremos formar campeões para a vida. Venha treinar, aprender, se divertir e escrever junto conosco o futuro do Timão.</p>
 
-    <h3>👉 <a href="frontend/cadastro.html" class="links">Inscreva-se</a> já e faça parte do Corinthians Chute Inicial!</h3>
-  </main>
+  <h3>👉 <a href="frontend/cadastro.html" class="links">Inscreva-se</a> já e faça parte do Corinthians Chute Inicial!</h3>
+</main>
 
-  <footer>
-    <div>
-      <p>Contato: <a href="#" onclick="copiarTexto('11968340210')" class="links">Whatsapp</a> | <a href="#" onclick="copiarTexto('guxxxxtavo.silva@gmail.com')" class="links">Email</a> | <a href="https://www.instagram.com/gusilvx.sccp" target="_blank" class="links">Instagram</a></p>
+<footer>
+  <div>
+    <p>Contato: <a href="#" onclick="copiarTexto('11968340210')" class="links">Whatsapp</a> | <a href="#" onclick="copiarTexto('guxxxxtavo.silva@gmail.com')" class="links">Email</a> | <a href="https://www.instagram.com/gusilvx.sccp" target="_blank" class="links">Instagram</a></p>
 
-    </div>
-    <p>Desenvolvido por <label for="text" class="links">Gustavo Silva</label></p>
-    <p>© 2025 Chute Inicial Corinthians</p>
-  </footer>
+  </div>
+  <p>Desenvolvido por <label for="text" class="links">Gustavo Silva</label></p>
+  <p>© 2025 Chute Inicial Corinthians</p>
+</footer>
 
-  <script>
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-    let index = 0;
+<script>
+  const slides = document.querySelector('.slides');
+  const totalSlides = document.querySelectorAll('.slide').length;
+  let index = 0;
 
-    function showNextSlide() {
-    index++;
-    if (index >= totalSlides) index = 0;
-    slides.style.transform = `translateX(${-index * 100}%)`;
-    }
-
-    setInterval(showNextSlide, 3000);
-    
-    function copiarTexto(texto) {
-    navigator.clipboard.writeText(texto).then(() => {
-      alert("Copiado: " + texto);
-    }).catch(err => {
-      console.error("Erro ao copiar: ", err);
-    });
+  function showNextSlide() {
+  index++;
+  if (index >= totalSlides) index = 0;
+  slides.style.transform = `translateX(${-index * 100}%)`;
   }
-  </script>
+
+  setInterval(showNextSlide, 3000);
+  
+  function copiarTexto(texto) {
+  navigator.clipboard.writeText(texto).then(() => {
+    alert("Copiado: " + texto);
+  }).catch(err => {
+    console.error("Erro ao copiar: ", err);
+  });
+}
+</script>
 </body>
 </html>

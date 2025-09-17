@@ -67,7 +67,27 @@
 
     <p>© 2025 Chute Inicial Corinthians</p>
   </footer>
-
   <script src="js/main.js"></script>
+  <script>
+  const slides = document.querySelector('.slides');
+  const totalSlides = document.querySelectorAll('.slide').length;
+  let index = 0;
+
+  function showNextSlide() {
+  index++;
+  if (index >= totalSlides) index = 0;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+  }
+
+  setInterval(showNextSlide, 3000);
+  
+  function copiarTexto(texto) {
+  navigator.clipboard.writeText(texto).then(() => {
+    alert("Copiado: " + texto);
+  }).catch(err => {
+    console.error("Erro ao copiar: ", err);
+  });
+}
+</script>
 </body>
 </html>
