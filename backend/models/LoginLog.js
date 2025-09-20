@@ -29,7 +29,6 @@ const LoginLog = sequelize.define("LoginLog", {
   },
 });
 
-// Relacionamentos
 LoginLog.belongsTo(User, {
   foreignKey: "userId",
   onDelete: "CASCADE"

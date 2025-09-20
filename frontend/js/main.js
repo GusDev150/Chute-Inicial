@@ -1,4 +1,3 @@
-// ----------- LOGIN -----------
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
@@ -32,7 +31,6 @@ if (loginForm) {
   });
 }
 
-// ----------- CADASTRO -----------
 const cadastroForm = document.getElementById("cadastroForm");
 if (cadastroForm) {
   cadastroForm.addEventListener("submit", async (e) => {
@@ -65,7 +63,6 @@ if (cadastroForm) {
   });
 }
 
-// ----------- MATRÍCULA -----------
 const matriculaForm = document.getElementById("matriculaForm");
 if (matriculaForm) {
   matriculaForm.addEventListener("submit", async (e) => {

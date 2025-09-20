@@ -9,7 +9,6 @@ const LoginLog = require("../models/LoginLog");
 const JWT_SECRET = process.env.JWT_SECRET || "supersegredo_muito_forte";
 const JWT_EXPIRES = process.env.JWT_EXPIRES || "7d";
 
-// ---------------- REGISTER ----------------
 router.post("/register", async (req, res) => {
   try {
     const { nome, email, senha } = req.body;
@@ -27,7 +26,6 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// ---------------- LOGIN ----------------
 router.post("/login", async (req, res) => {
   try {
     const { email, senha } = req.body;

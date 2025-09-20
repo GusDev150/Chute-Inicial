@@ -6,13 +6,11 @@ if (!token) {
   window.location.href = "login.html";
 }
 
-// Logout
 document.getElementById("logoutBtn")?.addEventListener("click", () => {
   localStorage.removeItem("token");
   window.location.href = "login.html";
 });
 
-// Função para criar tabela com botões
 function criarTabela(id, dados, colunas, tipo = "") {
   const table = document.getElementById(id);
   table.innerHTML = "";
@@ -57,7 +55,6 @@ function criarTabela(id, dados, colunas, tipo = "") {
   });
 }
 
-// FETCH DATA
 async function fetchUsers() {
   const res = await fetch(`${API}/users`, { headers: { Authorization: `Bearer ${token}` } });
   const data = await res.json();
@@ -90,14 +87,12 @@ async function fetchLogins() {
   ], "login");
 }
 
-// USER ACTIONS
 async function excluirUser(id) {
   if (!confirm("Deseja excluir este usuário?")) return;
   const res = await fetch(`${API}/users/${id}`, { method: "DELETE", headers: { Authorization: `Bearer ${token}` } });
   const data = await res.json();
   alert(data.message);
 
-  // Remove linha da tabela
   const row = document.querySelector(`#usersTable tr[data-id='${id}']`);
   if (row) row.remove();
 }
@@ -115,7 +110,6 @@ async function editarUser(id) {
   fetchUsers();
 }
 
-// MATRICULA ACTIONS
 async function excluirMatricula(id) {
   if (!confirm("Deseja excluir esta matrícula?")) return;
   const res = await fetch(`${API}/matriculas/${id}`, { method: "DELETE", headers: { Authorization: `Bearer ${token}` } });
@@ -140,22 +134,18 @@ async function editarMatricula(id, unidade, categoria) {
   fetchMatriculas();
 }
 
-// LOGIN ACTIONS
 async function excluirLogin(id) {
   if (!confirm("Deseja excluir este login?")) return;
   const res = await fetch(`${API}/logins/${id}`, { method: "DELETE", headers: { Authorization: `Bearer ${token}` } });
   const data = await res.json();
   alert(data.message);
 
-  // Remove a linha da tabela
   const row = document.querySelector(`#loginsTable tr[data-id='${id}']`);
   if (row) row.remove();
 
-  // Opcional: recarregar tabela
   await fetchLogins();
 }
 
-// INIT
 (async function init() {
   await fetchUsers();
   await fetchMatriculas();

@@ -7,31 +7,79 @@
   <link rel="shortcut icon" href="midia/img/favicon/logo-do-corinthians-256.png" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <div class="logo-titulo">
-      <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="80px" height="80px">
-      <h1>Chute Inicial Corinthians</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="interlagos.html">Interlagos</a></li>
-        <li><a href="itaquera.html">Itaquera</a></li>
-        <li><a href="taboao.html">Taboão</a></li>
-        <li><a href="vargem-grande.html">Vargem Grande</a></li>
-        <li><a href="matricula.html">Matrícula</a></li>
-        <li><a href="cadastro.html">Cadastro</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <div class="logo-titulo">
+    <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="100px" height="100px">
+    <h1>Chute Inicial Corinthians</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="interlagos.html">Interlagos</a></li>
+      <li><a href="itaquera.html">Itaquera</a></li>
+      <li><a href="taboao.html">Taboão</a></li>
+      <li><a href="vargem-grande.html">Vargem Grande</a></li>
+      <li><a href="matricula.html">Matrícula</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main>
-    <h2>Unidade Osasco</h2>
-    <p>Treinamentos de 2ª, 4ª e 6ª das 14h às 18h</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>
-    <img src="imagens/osasco.jpg" alt="Treino Osasco">
-  </main>
+<main>
+  <h1>Unidade Osasco</h1>
+
+  <p>Na Unidade Osasco do Corinthians Chute Inicial, acreditamos que cada criança tem dentro de si um craque em potencial. Nossa missão é ajudar os pequenos a descobrirem esse talento por meio de treinos que unem aprendizado, disciplina e diversão.</p>
+
+<div class="carousel">
+  <div class="slides">
+    <div class="slide">
+    <img src="midia/img/Osasco/Osa 1.jpg" alt="Foto 1">
+  </div>
+  <div class="slide">
+    <img src="midia/img/Osasco/Osa 2.jpg" alt="Foto 2">
+  </div>
+  <div class="slide">
+    <img src="midia/img/Osasco/Osa 3.jpg" alt="Foto 3">
+  </div>
+   <div class="slide">
+    <img src="midia/img/Osasco/Osa 4.jpg" alt="Foto 4">
+    </div>
+   <div class="slide">
+    <img src="midia/img/Osasco/Osa 5.jpg" alt="Foto 5">
+  </div>
+  <div class="slide">
+    <img src="midia/img/Osasco/Osa 6.jpg" alt="Foto 6">
+  </div>
+ </div>
+</div>
+  
+<p>Oferecemos uma estrutura acolhedora e preparada para receber as famílias da região, garantindo segurança e conforto em cada atividade. Os professores trabalham com dedicação para que os alunos não apenas aprendam a jogar futebol, mas também absorvam valores que farão a diferença na vida adulta, como respeito, comprometimento e espírito coletivo.</p>
+
+<h2 style="text-align: center;">Calendário de Aulas</h2>
+
+    <div class="cal">
+  <div class="topo">
+    <button id="voltar">&lt;</button>
+    <div class="mes-ano" id="mesAno"></div>
+    <button id="avancar">&gt;</button>
+  </div>
+    <div class="corpo">
+    <div class="semana" id="semana"></div>
+    <div class="dias" id="dias"></div>
+    </div>
+  </div>
+  <br>
+
+<p>Além do campo, aqui também é espaço para fazer amigos, compartilhar conquistas e aprender a importância de cada jogada em equipe. Se você quer que seu filho cresça com a garra do Corinthians, venha conhecer a Unidade Osasco e faça parte dessa história com a gente!</p>
+
+<h2>Localização da Escolinha</h2>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.3249947616087!2d-46.79069200000001!3d-23.520810599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cefe503d7cf1a9%3A0xaac01b870c0602ae!2sChute%20Inicial%20Corinthians!5e0!3m2!1spt-BR!2sbr!4v1758386776067!5m2!1spt-BR!2sbr" width="1135" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<h3>👉 <a href="cadastro.html" class="links">Inscreva-se</a> já e faça parte do Corinthians Chute Inicial!</h3>
+
+</main>
 
 <footer>
   <div>
@@ -62,6 +110,90 @@
     console.error("Erro ao copiar: ", err);
   });
 }
+
+const nomesSemana = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+    const nomesMeses = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+
+    let hoje = new Date();
+    let mes = hoje.getMonth();
+    let ano = hoje.getFullYear();
+
+    const mesAnoEl = document.getElementById("mesAno");
+    const semanaEl = document.getElementById("semana");
+    const diasEl = document.getElementById("dias");
+    const voltar = document.getElementById("voltar");
+    const avancar = document.getElementById("avancar");
+
+    function mostrarSemana() {
+      semanaEl.innerHTML = "";
+      nomesSemana.forEach(d => {
+        const div = document.createElement("div");
+        div.innerText = d;
+        semanaEl.appendChild(div);
+      });
+    }
+
+    function mostrarCalendario(mes, ano) {
+      diasEl.innerHTML = "";
+      mesAnoEl.innerText = `${nomesMeses[mes]} ${ano}`;
+
+      const primeiro = new Date(ano, mes, 1).getDay();
+      const qtdDias = new Date(ano, mes+1, 0).getDate();
+      const ultDiaAnt = new Date(ano, mes, 0).getDate();
+
+      // dias do mês anterior
+      for(let i=primeiro;i>0;i--){
+        const div = document.createElement("div");
+        div.classList.add("inativo");
+        div.innerText = ultDiaAnt - i + 1;
+        diasEl.appendChild(div);
+      }
+
+      // dias do mês atual
+      for(let d=1;d<=qtdDias;d++){
+        const div = document.createElement("div");
+        div.innerText = d;
+        const diaSemana = new Date(ano, mes, d).getDay();
+
+        if(d===hoje.getDate() && mes===hoje.getMonth() && ano===hoje.getFullYear()) div.classList.add("hoje");
+        if(diaSemana===2 || diaSemana===4) div.classList.add("treino");
+
+        div.addEventListener("click", ()=>{
+          if(diaSemana===2 || diaSemana===4){
+            alert(`Horários dos treinos:\n Sub-07, 08, 09 e 10 - 12h00 às 13h30\n Sub-11, 12 e 13 - 14h30 às 16h00\n Sub-14, 15, 16 e 17 - 18h00 às 19h30`);
+          } else {
+            alert(`Você clicou em ${d}/${mes+1}/${ano}`);
+          }
+        });
+
+        diasEl.appendChild(div);
+      }
+
+      // dias do próximo mês pra completar grade
+      const total = primeiro + qtdDias;
+      const faltam = total % 7 === 0 ? 0 : 7 - (total % 7);
+      for(let i=1;i<=faltam;i++){
+        const div = document.createElement("div");
+        div.classList.add("inativo");
+        div.innerText = i;
+        diasEl.appendChild(div);
+      }
+    }
+
+    voltar.addEventListener("click",()=>{
+      mes--;
+      if(mes<0){ mes=11; ano--; }
+      mostrarCalendario(mes,ano);
+    });
+
+    avancar.addEventListener("click",()=>{
+      mes++;
+      if(mes>11){ mes=0; ano++; }
+      mostrarCalendario(mes,ano);
+    });
+
+    mostrarSemana();
+    mostrarCalendario(mes,ano);
 </script>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <body>
   <header>
     <div class="logo-titulo">
-      <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="80px" height="80px">
+      <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="100px" height="100px">
       <h1>Chute Inicial Corinthians</h1>
     </div>
     <nav>
@@ -26,12 +26,60 @@
     </nav>
   </header>
 
-  <main>
-    <h2>Unidade Vargem Grande</h2>
-    <p>Treinamentos de 2ª, 4ª e 6ª das 14h às 18h</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>
-    <img src="imagens/vargem-grande.jpg" alt="Treino Vargem Grande">
-  </main>
+<main>
+  <h1>Unidade Vargem Grande</h1>
+
+  <p>Na Unidade Vargem Grande do Corinthians Chute Inicial, cada treino é muito mais do que um simples momento com a bola nos pés. Aqui, unimos o amor pelo Corinthians com a formação esportiva de qualidade, proporcionando às crianças uma vivência completa no mundo do futebol.</p>
+
+  <div class="carousel">
+    <div class="slides">
+      <div class="slide">
+      <img src="midia/img/Vargem Grande/Var 1.jpg" alt="Foto 1">
+    </div>
+    <div class="slide">
+      <img src="midia/img/Vargem Grande/Var 2.jpg" alt="Foto 2">
+    </div>
+    <div class="slide">
+      <img src="midia/img/Vargem Grande/Var 3.jpg" alt="Foto 3">
+    </div>
+    <div class="slide">
+      <img src="midia/img/Vargem Grande/Var 4.jpg" alt="Foto 4">
+    </div>
+    <div class="slide">
+      <img src="midia/img/Vargem Grande/Var 5.jpg" alt="Foto 5">
+    </div>
+    <div class="slide">
+      <img src="midia/img/Vargem Grande/Var 6.jpg" alt="Foto 6">
+    </div>
+  </div>
+</div>
+    
+<p>Com uma equipe dedicada e estrutura preparada para receber os alunos e suas famílias, garantimos segurança, acolhimento e incentivo em cada etapa do aprendizado. Os treinos são planejados para desenvolver técnica, condicionamento e, principalmente, valores que o Timão carrega em sua essência: superação, lealdade, trabalho em equipe e paixão pelo que se faz.</p>
+
+<h2 style="text-align: center;">Calendário de Aulas</h2>
+
+<div class="cal">
+  <div class="topo">
+    <button id="voltar">&lt;</button>
+    <div class="mes-ano" id="mesAno"></div>
+    <button id="avancar">&gt;</button>
+  </div>
+    <div class="corpo">
+    <div class="semana" id="semana"></div>
+    <div class="dias" id="dias"></div>
+    </div>
+</div>
+<br>
+
+<p>A Unidade Vargem Grande é o espaço perfeito para que seu filho cresça dentro de campo, faça novas amizades e aprenda lições que levará para toda a vida. Matricule-o e permita que ele viva o futebol com a energia e o orgulho de vestir a camisa do Corinthians!</p>
+
+<h2>Localização da Escolinha</h2>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3655.9874537112487!2d-47.0210981!3d-23.6047829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf0907bf3e4827%3A0xe0a84207840aedb2!2sEscola%20de%20Futebol%20Chute%20Inicial%20Corinthians%20Vargem%20Grande%20Paulista!5e0!3m2!1spt-BR!2sbr!4v1758388010739!5m2!1spt-BR!2sbr" width="1135" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<h3>👉 <a href="cadastro.html" class="links">Inscreva-se</a> já e faça parte do Corinthians Chute Inicial!</h3>
+
+</main>
 
 <footer>
   <div>
@@ -62,6 +110,90 @@
     console.error("Erro ao copiar: ", err);
   });
 }
+
+const nomesSemana = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+const nomesMeses = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+
+let hoje = new Date();
+let mes = hoje.getMonth();
+let ano = hoje.getFullYear();
+
+const mesAnoEl = document.getElementById("mesAno");
+const semanaEl = document.getElementById("semana");
+const diasEl = document.getElementById("dias");
+const voltar = document.getElementById("voltar");
+const avancar = document.getElementById("avancar");
+
+function mostrarSemana() {
+  semanaEl.innerHTML = "";
+  nomesSemana.forEach(d => {
+    const div = document.createElement("div");
+    div.innerText = d;
+    semanaEl.appendChild(div);
+  });
+}
+
+function mostrarCalendario(mes, ano) {
+  diasEl.innerHTML = "";
+  mesAnoEl.innerText = `${nomesMeses[mes]} ${ano}`;
+
+  const primeiro = new Date(ano, mes, 1).getDay();
+  const qtdDias = new Date(ano, mes+1, 0).getDate();
+  const ultDiaAnt = new Date(ano, mes, 0).getDate();
+
+  // dias do mês anterior
+  for(let i=primeiro;i>0;i--){
+    const div = document.createElement("div");
+    div.classList.add("inativo");
+    div.innerText = ultDiaAnt - i + 1;
+    diasEl.appendChild(div);
+  }
+
+  // dias do mês atual
+  for(let d=1;d<=qtdDias;d++){
+    const div = document.createElement("div");
+    div.innerText = d;
+    const diaSemana = new Date(ano, mes, d).getDay();
+
+    if(d===hoje.getDate() && mes===hoje.getMonth() && ano===hoje.getFullYear()) div.classList.add("hoje");
+    if(diaSemana===2 || diaSemana===4) div.classList.add("treino");
+
+    div.addEventListener("click", ()=>{
+      if(diaSemana===2 || diaSemana===4){
+        alert(`Horários dos treinos:\n Sub-07, 08, 09 e 10 - 8h00 às 9h30\n Sub-11, 12 e 13 - 12h00 às 13h30\n Sub-14, 15, 16 e 17 - 15h00 às 16h30`);
+      } else {
+        alert(`Você clicou em ${d}/${mes+1}/${ano}`);
+      }
+    });
+
+    diasEl.appendChild(div);
+  }
+
+  // dias do próximo mês pra completar grade
+  const total = primeiro + qtdDias;
+  const faltam = total % 7 === 0 ? 0 : 7 - (total % 7);
+  for(let i=1;i<=faltam;i++){
+    const div = document.createElement("div");
+    div.classList.add("inativo");
+    div.innerText = i;
+    diasEl.appendChild(div);
+  }
+}
+
+voltar.addEventListener("click",()=>{
+  mes--;
+  if(mes<0){ mes=11; ano--; }
+  mostrarCalendario(mes,ano);
+});
+
+avancar.addEventListener("click",()=>{
+  mes++;
+  if(mes>11){ mes=0; ano++; }
+  mostrarCalendario(mes,ano);
+});
+
+mostrarSemana();
+mostrarCalendario(mes,ano);
 </script>
 </body>
 </html>

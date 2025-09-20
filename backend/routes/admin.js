@@ -1,18 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
-const Matricula = require("../models/Matricula"); // renomeie o arquivo para minúsculo
+const Matricula = require("../models/Matricula");
 const LoginLog = require("../models/LoginLog");
 
-// ================= USERS =================
-
-// GET todos usuários
 router.get("/users", async (req, res) => {
   const users = await User.findAll();
   res.json(users);
 });
 
-// PUT atualizar usuário
 router.put("/users/:id", async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id);
@@ -28,7 +24,6 @@ router.put("/users/:id", async (req, res) => {
   }
 });
 
-// DELETE usuário
 router.delete("/users/:id", async (req, res) => {
   try {
     const user = await User.findByPk(req.params.id);
@@ -42,15 +37,11 @@ router.delete("/users/:id", async (req, res) => {
   }
 });
 
-// ================= MATRICULAS =================
-
-// GET todas matrículas
 router.get("/matriculas", async (req, res) => {
   const matriculas = await Matricula.findAll({ include: User });
   res.json(matriculas);
 });
 
-// PUT atualizar matrícula
 router.put("/matriculas/:id", async (req, res) => {
   try {
     const matricula = await Matricula.findByPk(req.params.id);
@@ -66,7 +57,6 @@ router.put("/matriculas/:id", async (req, res) => {
   }
 });
 
-// DELETE matrícula
 router.delete("/matriculas/:id", async (req, res) => {
   try {
     const matricula = await Matricula.findByPk(req.params.id);
@@ -80,15 +70,11 @@ router.delete("/matriculas/:id", async (req, res) => {
   }
 });
 
-// ================= LOGIN LOGS =================
-
-// GET todos logins
 router.get("/logins", async (req, res) => {
   const logins = await LoginLog.findAll({ include: User });
   res.json(logins);
 });
 
-// DELETE login
 router.delete("/logins/:id", async (req, res) => {
   try {
     const log = await LoginLog.findByPk(req.params.id);

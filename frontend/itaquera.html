@@ -9,7 +9,7 @@
 <body>
   <header>
     <div class="logo-titulo">
-      <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="80px" height="80px">
+      <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="100px" height="100px">
       <h1>Chute Inicial Corinthians</h1>
     </div>
     <nav>
@@ -27,10 +27,58 @@
   </header>
 
   <main>
-    <h2>Unidade Itaquera</h2>
-    <p>Treinamentos de 2ª, 4ª e 6ª das 14h às 18h</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>
-    <img src="imagens/itaquera.jpg" alt="Treino Itaquera">
+    <h1>Unidade Itaquera</h1>
+
+    <p>Treinar em Itaquera é viver o futebol mais perto da essência do Corinthians! A Unidade Itaquera do Corinthians Chute Inicial carrega toda a energia da Fiel e proporciona aos alunos uma imersão única na história e nos valores do clube.</p>
+
+    <div class="carousel">
+      <div class="slides">
+        <div class="slide">
+        <img src="midia/img/Itaquera/Ita 1.jpg" alt="Foto 1">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Itaquera/Ita 2.jpg" alt="Foto 2">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Itaquera/Ita 3.jpg" alt="Foto 3">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Itaquera/Ita 4.jpg" alt="Foto 4">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Itaquera/Ita 5.jpg" alt="Foto 5">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Itaquera/Ita 6.jpg" alt="Foto 6">
+      </div>
+    </div>
+  </div>
+    
+  <p>Aqui, cada treino é uma oportunidade de aprender com dedicação, raça e paixão pelo futebol. Os professores trabalham técnicas modernas, promovem a evolução dos fundamentos e, acima de tudo, ensinam a importância da união e da amizade. Mais do que formar futuros atletas, formamos cidadãos preparados para encarar desafios dentro e fora de campo.</p>
+
+  <h2 style="text-align: center;">Calendário de Aulas</h2>
+
+      <div class="cal">
+    <div class="topo">
+      <button id="voltar">&lt;</button>
+      <div class="mes-ano" id="mesAno"></div>
+      <button id="avancar">&gt;</button>
+    </div>
+      <div class="corpo">
+      <div class="semana" id="semana"></div>
+      <div class="dias" id="dias"></div>
+      </div>
+    </div>
+    <br>
+
+  <p>Com atividades dinâmicas, turmas organizadas por faixa etária e uma estrutura completa, a Unidade Itaquera é o local perfeito para transformar o sonho do seu filho em realidade. Se ele sonha em vestir a camisa do Timão, esse é o primeiro passo para começar essa trajetória!</p>
+
+  <h2>Localização da Escolinha</h2>
+
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.103079088928!2d-46.4444532!3d-23.564741099999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce667bda415d81%3A0x9f15018c170f6951!2sChute%20Inicial%20Itaquera!5e0!3m2!1spt-BR!2sbr!4v1758386174312!5m2!1spt-BR!2sbr" width="1135" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <h3>👉 <a href="cadastro.html" class="links">Inscreva-se</a> já e faça parte do Corinthians Chute Inicial!</h3>
+
   </main>
 
 <footer>
@@ -62,6 +110,90 @@
     console.error("Erro ao copiar: ", err);
   });
 }
+
+const nomesSemana = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+    const nomesMeses = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+
+    let hoje = new Date();
+    let mes = hoje.getMonth();
+    let ano = hoje.getFullYear();
+
+    const mesAnoEl = document.getElementById("mesAno");
+    const semanaEl = document.getElementById("semana");
+    const diasEl = document.getElementById("dias");
+    const voltar = document.getElementById("voltar");
+    const avancar = document.getElementById("avancar");
+
+    function mostrarSemana() {
+      semanaEl.innerHTML = "";
+      nomesSemana.forEach(d => {
+        const div = document.createElement("div");
+        div.innerText = d;
+        semanaEl.appendChild(div);
+      });
+    }
+
+    function mostrarCalendario(mes, ano) {
+      diasEl.innerHTML = "";
+      mesAnoEl.innerText = `${nomesMeses[mes]} ${ano}`;
+
+      const primeiro = new Date(ano, mes, 1).getDay();
+      const qtdDias = new Date(ano, mes+1, 0).getDate();
+      const ultDiaAnt = new Date(ano, mes, 0).getDate();
+
+      // dias do mês anterior
+      for(let i=primeiro;i>0;i--){
+        const div = document.createElement("div");
+        div.classList.add("inativo");
+        div.innerText = ultDiaAnt - i + 1;
+        diasEl.appendChild(div);
+      }
+
+      // dias do mês atual
+      for(let d=1;d<=qtdDias;d++){
+        const div = document.createElement("div");
+        div.innerText = d;
+        const diaSemana = new Date(ano, mes, d).getDay();
+
+        if(d===hoje.getDate() && mes===hoje.getMonth() && ano===hoje.getFullYear()) div.classList.add("hoje");
+        if(diaSemana===2 || diaSemana===4) div.classList.add("treino");
+
+        div.addEventListener("click", ()=>{
+          if(diaSemana===2 || diaSemana===4){
+            alert(`Horários dos treinos:\n Sub-07, 08, 09 e 10 - 8h00 às 9h30\n Sub-11, 12 e 13 - 12h00 às 13h30\n Sub-14, 15, 16 e 17 - 15h00 às 16h30`);
+          } else {
+            alert(`Você clicou em ${d}/${mes+1}/${ano}`);
+          }
+        });
+
+        diasEl.appendChild(div);
+      }
+
+      // dias do próximo mês pra completar grade
+      const total = primeiro + qtdDias;
+      const faltam = total % 7 === 0 ? 0 : 7 - (total % 7);
+      for(let i=1;i<=faltam;i++){
+        const div = document.createElement("div");
+        div.classList.add("inativo");
+        div.innerText = i;
+        diasEl.appendChild(div);
+      }
+    }
+
+    voltar.addEventListener("click",()=>{
+      mes--;
+      if(mes<0){ mes=11; ano--; }
+      mostrarCalendario(mes,ano);
+    });
+
+    avancar.addEventListener("click",()=>{
+      mes++;
+      if(mes>11){ mes=0; ano++; }
+      mostrarCalendario(mes,ano);
+    });
+
+    mostrarSemana();
+    mostrarCalendario(mes,ano);
 </script>
 </body>
 </html>

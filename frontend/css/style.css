@@ -73,6 +73,7 @@ nav a:hover, nav a.active {
 }
 
 main {
+  font-size: 22px;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -104,7 +105,6 @@ p {
   text-decoration: underline;
 }
 
-/* Forms */
 form {
   background: var(--branco);
   padding: 2rem;
@@ -146,7 +146,6 @@ button:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   border-radius: 8px;
@@ -161,7 +160,6 @@ button:hover {
   color: var(--dourado);
 }
 
-/* Tables */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -187,7 +185,6 @@ tr:hover {
   background: var(--hover-bg);
 }
 
-/* Footer */
 footer {
   background: var(--preto);
   color: var(--branco);
@@ -196,15 +193,13 @@ footer {
   margin-top: 1rem;
 }
 
-/* Carrossel */
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   height: 500px;
   margin: 2rem auto;
   overflow: hidden;
-  border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -224,11 +219,10 @@ footer {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
 }
 
-/* Overlay com nome da unidade */
 .overlay {
   position: absolute;
   bottom: 0;
@@ -251,3 +245,84 @@ footer {
 .slide:hover .overlay {
   opacity: 1;
 }
+
+.cal {
+  width: 350px;
+  border: 1px solid #ccc ;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: auto;
+}
+.topo {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f0f0f0;
+  align-items: center;
+}
+.topo button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.mes-ano {
+  font-weight: bold;
+}
+.corpo {
+  padding: 10px;
+}
+.semana, .dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+.semana div { font-weight: bold; padding: 5px 0; }
+.dias div {
+  padding: 8px 0; margin: 2px;
+  cursor: pointer; border-radius: 4px;
+}
+.dias div.inativo { color: #aaa; }
+.dias div.hoje { background-color: #007bff; color: white; }
+.dias div:hover { background-color: #dde; }
+.dias div.treino { background-color: gold; font-weight: bold; }
+
+  .carousel {
+position: relative;
+width: 80%;
+max-width: 800px;
+margin: 20px auto;
+overflow: hidden;
+border-radius: 12px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+ border-radius: 50%;
+}
+
+.btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }

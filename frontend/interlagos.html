@@ -9,7 +9,7 @@
 <body>
   <header>
   <div class="logo-titulo">
-    <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="80px" height="80px">
+    <img src="midia/img/favicon/logo-do-corinthians-256.png" alt="Logo Corinthians" width="100px" height="100px">
     <h1>Chute Inicial Corinthians</h1>
   </div>
   <nav>
@@ -27,10 +27,57 @@
 </header>
 
 <main>
-  <h2>Unidade Interlagos</h2>
-  <p>Treinamentos de 2ª, 4ª e 6ª das 14h às 18h</p>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.075586065361!2d-46.69728378922357!3d-23.67325477863436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce503b59abffff%3A0x76ee1ef12cae1e90!2sArena%20Soccer%20Grass%20Academy%20-%20Unidade%20Interlagos!5e0!3m2!1spt-BR!2sbr!4v1756602464968!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  <img src="imagens/interlagos.jpg" alt="Treino Interlagos">
+  <h1>Unidade Interlagos</h1>
+  <p>A Unidade Interlagos do Corinthians Chute Inicial é o espaço ideal para quem busca uma formação esportiva completa, com a marca do Timão. Localizada em uma região de fácil acesso, nossa unidade conta com infraestrutura pensada para receber os pequenos com segurança, conforto e qualidade.</p>
+
+  <div class="carousel">
+      <div class="slides">
+        <div class="slide">
+        <img src="midia/img/Interlagos/inter 1.jpg" alt="Foto 1">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Interlagos/inter 2.jpg" alt="Foto 2">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Interlagos/inter 3.jpg" alt="Foto 3">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Interlagos/inter 4.jpg" alt="Foto 4">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Interlagos/inter 5.jpg" alt="Foto 5">
+      </div>
+      <div class="slide">
+        <img src="midia/img/Interlagos/inter 6.jpg" alt="Foto 6">
+      </div>
+    </div>
+  </div>
+
+  <p>Aqui, cada treino vai muito além das quatro linhas: trabalhamos com metodologia moderna que desenvolve fundamentos técnicos do futebol, mas também valores importantes para a vida, como respeito, disciplina, amizade e trabalho em equipe. Tudo isso em um ambiente divertido, que incentiva a socialização e o espírito esportivo.</p>
+
+  <h2 style="text-align: center;">Calendário de Aulas</h2>
+
+    <div class="cal">
+    <div class="topo">
+      <button id="voltar">&lt;</button>
+      <div class="mes-ano" id="mesAno"></div>
+      <button id="avancar">&gt;</button>
+    </div>
+      <div class="corpo">
+      <div class="semana" id="semana"></div>
+      <div class="dias" id="dias"></div>
+      </div>
+    </div>
+    <br>
+
+  <p>Com treinadores capacitados e apaixonados pelo que fazem, garantimos que cada criança tenha a oportunidade de evoluir dentro do seu ritmo, aprendendo a jogar futebol com garra e alegria. Se você deseja que seu filho viva uma experiência transformadora, a Unidade Interlagos é o lugar certo para começar essa jornada alvinegra!</p>
+    
+  <h2>Localização da Escolinha</h2>
+
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.075586065361!2d-46.69728378922357!3d-23.67325477863436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce503b59abffff%3A0x76ee1ef12cae1e90!2sArena%20Soccer%20Grass%20Academy%20-%20Unidade%20Interlagos!5e0!3m2!1spt-BR!2sbr!4v1756602464968!5m2!1spt-BR!2sbr" width="1135" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <h3>👉 <a href="cadastro.html" class="links">Inscreva-se</a> já e faça parte do Corinthians Chute Inicial!</h3>
+  
 </main>
 
 <footer>
@@ -62,6 +109,94 @@
     console.error("Erro ao copiar: ", err);
   });
 }
+
+
+
+
+const nomesSemana = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+const nomesMeses = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+
+let hoje = new Date();
+let mes = hoje.getMonth();
+let ano = hoje.getFullYear();
+
+const mesAnoEl = document.getElementById("mesAno");
+const semanaEl = document.getElementById("semana");
+const diasEl = document.getElementById("dias");
+const voltar = document.getElementById("voltar");
+const avancar = document.getElementById("avancar");
+
+function mostrarSemana() {
+  semanaEl.innerHTML = "";
+  nomesSemana.forEach(d => {
+    const div = document.createElement("div");
+    div.innerText = d;
+    semanaEl.appendChild(div);
+  });
+}
+
+function mostrarCalendario(mes, ano) {
+  diasEl.innerHTML = "";
+  mesAnoEl.innerText = `${nomesMeses[mes]} ${ano}`;
+
+  const primeiro = new Date(ano, mes, 1).getDay();
+  const qtdDias = new Date(ano, mes+1, 0).getDate();
+  const ultDiaAnt = new Date(ano, mes, 0).getDate();
+
+  // dias do mês anterior
+  for(let i=primeiro;i>0;i--){
+    const div = document.createElement("div");
+    div.classList.add("inativo");
+    div.innerText = ultDiaAnt - i + 1;
+    diasEl.appendChild(div);
+  }
+
+  // dias do mês atual
+  for(let d=1;d<=qtdDias;d++){
+    const div = document.createElement("div");
+    div.innerText = d;
+    const diaSemana = new Date(ano, mes, d).getDay();
+
+    if(d===hoje.getDate() && mes===hoje.getMonth() && ano===hoje.getFullYear()) div.classList.add("hoje");
+    if(diaSemana===2 || diaSemana===4) div.classList.add("treino");
+
+    div.addEventListener("click", ()=>{
+      if(diaSemana===2 || diaSemana===4){
+        alert(`Horários dos treinos:\n Sub-07, 08, 09 e 10 - 11h00 às 12h30\n Sub-11, 12 e 13 - 16h00 às 17h30\n Sub-14, 15, 16 e 17 - 19h00 às 20h30`);
+      } else {
+        alert(`Você clicou em ${d}/${mes+1}/${ano}`);
+      }
+    });
+
+    diasEl.appendChild(div);
+  }
+
+  // dias do próximo mês pra completar grade
+  const total = primeiro + qtdDias;
+  const faltam = total % 7 === 0 ? 0 : 7 - (total % 7);
+  for(let i=1;i<=faltam;i++){
+    const div = document.createElement("div");
+    div.classList.add("inativo");
+    div.innerText = i;
+    diasEl.appendChild(div);
+  }
+}
+
+voltar.addEventListener("click",()=>{
+  mes--;
+  if(mes<0){ mes=11; ano--; }
+  mostrarCalendario(mes,ano);
+});
+
+avancar.addEventListener("click",()=>{
+  mes++;
+  if(mes>11){ mes=0; ano++; }
+  mostrarCalendario(mes,ano);
+});
+
+mostrarSemana();
+mostrarCalendario(mes,ano);
+
 </script>
 </body>
 </html>
