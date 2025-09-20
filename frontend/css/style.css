@@ -287,7 +287,7 @@ footer {
 .dias div:hover { background-color: #dde; }
 .dias div.treino { background-color: gold; font-weight: bold; }
 
-  .carousel {
+.carousel {
 position: relative;
 width: 80%;
 max-width: 800px;
@@ -305,19 +305,6 @@ box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 .carousel-images img {
   width: 100%;
   border-radius: 12px;
-}
-
-.btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 10px;
- border-radius: 50%;
 }
 
 .btn:hover {
